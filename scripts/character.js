@@ -1,60 +1,53 @@
-class Character {
+class Character extends Animate {
   constructor(image) {
-    this.image = image;
-    this.currentFrameOnRunnig = 0;
+    super(image);
+    this.axisX = 0;
+
+    this.objectWidth = 480;
+    this.objectHeight = 480;
+
+    this.spritesQuantity = 8;
+    this.spriteLines = 3;
+    this.spriteColumns = 3;
+
+    this.initialAxisY = height - this.objectHeight / 2;
+    this.axisY = this.initialAxisY;
+
+    this.jumpVelocity = 0;
+    this.gravity = 5;
   }
 
-  show() {
-    const characterWidth = 480;
-    const characterHeight = 480;
-    const axisX = 0;
-    const axisY = height - characterHeight / 2;
-    const spritesQuantity = 8;
-    const spriteLines = 3;
-    const spriteColumns = 3;
+  jump() {
+    this.jumpVelocity = -50;
+  }
 
-    this.imagePositon = this.generateMatrixPosition(
-      spritesQuantity,
-      spriteLines,
-      spriteColumns,
-      characterWidth + 60,
-      characterHeight
+  applyGravity() {
+    this.axisY += this.jumpVelocity;
+    this.jumpVelocity += this.gravity;
+
+    if (this.axisY > this.initialAxisY) {
+      this.axisY = this.initialAxisY;
+    }
+  }
+
+  bumped(enemy) {
+    //to debug
+    noFill();
+    rect(this.axisX, this.axisY, this.objectWidth, this.objectHeight);
+    rect(enemy.axisX, enemy.axisY, enemy.objectWidth, enemy.objectHeight);
+
+    const precision = 0.2;
+    const bump = collideRectRect(
+      this.axisX,
+      this.axisY,
+      this.objectWidth * precision,
+      this.objectHeight * precision,
+      enemy.axisX,
+      enemy.axisY,
+      enemy.objectWidth * precision,
+      enemy.objectHeight * precision
     );
 
-    image(
-      this.image,
-      axisX,
-      axisY,
-      characterWidth / 2,
-      characterHeight / 2,
-      this.imagePositon[this.currentFrameOnRunnig][0],
-      this.imagePositon[this.currentFrameOnRunnig][1],
-      characterWidth,
-      characterHeight
-    );
-
-    this.run();
-  }
-
-  generateMatrixPosition(size, lines, columns, imageWidht, imageHeight) {
-    const matrix = [];
-    let index = 0;
-    for (let indexColumns = 0; indexColumns < columns; indexColumns++) {
-      for (let indexLines = 0; indexLines < lines; indexLines++) {
-        if (indexColumns + indexLines + 2 <= size) {
-          matrix[index] = [indexLines * imageWidht, indexColumns * imageHeight];
-          index++;
-        }
-      }
-    }
-    return matrix;
-  }
-
-  run() {
-    this.currentFrameOnRunnig++;
-
-    if (this.currentFrameOnRunnig >= this.imagePositon.length - 1) {
-      this.currentFrameOnRunnig = 0;
-    }
+    return bump;
   }
 }
