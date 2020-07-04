@@ -1,16 +1,16 @@
 class Enemy extends Animate {
   constructor(image) {
     super(image);
-    this.objectWidth = 480;
-    this.objectHeight = 480;
+    this.objectWidth = 163.1;
+    this.objectHeight = 174;
 
     this.axisX = width - this.objectWidth;
 
-    this.spritesQuantity = 8;
-    this.spriteLines = 3;
-    this.spriteColumns = 3;
+    this.spritesQuantity = 10;
+    this.spriteLines = 1;
+    this.spriteColumns = 10;
 
-    this.axisY = height - this.objectHeight / 2;
+    this.axisY = height - this.objectHeight;
 
     this.speed = 20;
   }

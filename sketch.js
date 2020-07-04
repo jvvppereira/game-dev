@@ -11,7 +11,7 @@ function setup() {
   character = new Character(characterRunImage);
   enemy = new Enemy(enemyRunImage);
   frameRate(16);
-  // gameSound.loop();
+  gameSound.loop();
 }
 
 function draw() {

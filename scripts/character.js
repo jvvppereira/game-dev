@@ -3,14 +3,14 @@ class Character extends Animate {
     super(image);
     this.axisX = 0;
 
-    this.objectWidth = 480;
-    this.objectHeight = 480;
+    this.objectWidth = 150;
+    this.objectHeight = 222.75;
 
     this.spritesQuantity = 8;
-    this.spriteLines = 3;
-    this.spriteColumns = 3;
+    this.spriteLines = 8;
+    this.spriteColumns = 1;
 
-    this.initialAxisY = height - this.objectHeight / 2;
+    this.initialAxisY = height - this.objectHeight;
     this.axisY = this.initialAxisY;
 
     this.jumpVelocity = 0;
@@ -31,12 +31,12 @@ class Character extends Animate {
   }
 
   bumped(enemy) {
-    //to debug
-    noFill();
-    rect(this.axisX, this.axisY, this.objectWidth, this.objectHeight);
-    rect(enemy.axisX, enemy.axisY, enemy.objectWidth, enemy.objectHeight);
+    // to debug
+    // noFill();
+    // rect(this.axisX, this.axisY, this.objectWidth, this.objectHeight);
+    // rect(enemy.axisX, enemy.axisY, enemy.objectWidth, enemy.objectHeight);
 
-    const precision = 0.2;
+    const precision = 0.7;
     const bump = collideRectRect(
       this.axisX,
       this.axisY,
