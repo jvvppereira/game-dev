@@ -1,17 +1,26 @@
 function preload() {
-  scenarioImage = loadImage('images/scenario/forest.png');
+  backgroundImage = loadImage(
+    'images/scenario/forest-01/layers/background.png'
+  );
+  foregroundImage = loadImage(
+    'images/scenario/forest-01/layers/foreground.png'
+  );
   characterRunImage = loadImage('images/dog/run.png');
   enemyRunImage = loadImage('images/cat/slide.png');
   gameSound = loadSound('audio/game-music.mp3');
+  jumpSound = loadSound('audio/jump.mp3');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  scenario = new Scenario(scenarioImage, 10);
+  scenario = new Scenario(
+    { background: backgroundImage, foreground: foregroundImage },
+    10
+  );
   character = new Character(characterRunImage);
   enemy = new Enemy(enemyRunImage);
-  frameRate(16);
-  gameSound.loop();
+  frameRate(20);
+  // gameSound.loop();
 }
 
 function draw() {

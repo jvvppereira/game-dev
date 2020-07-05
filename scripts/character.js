@@ -15,10 +15,16 @@ class Character extends Animate {
 
     this.jumpVelocity = 0;
     this.gravity = 5;
+
+    this.jumpCount = 0;
   }
 
   jump() {
-    this.jumpVelocity = -50;
+    if (this.jumpCount < 2) {
+      jumpSound.play();
+      this.jumpVelocity = -50;
+      this.jumpCount++;
+    }
   }
 
   applyGravity() {
@@ -27,6 +33,7 @@ class Character extends Animate {
 
     if (this.axisY > this.initialAxisY) {
       this.axisY = this.initialAxisY;
+      this.jumpCount = 0;
     }
   }
 
