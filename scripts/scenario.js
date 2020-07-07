@@ -1,9 +1,9 @@
 class Scenario {
-  constructor({ background, foreground }, speed) {
+  constructor({ background, foreground, speed }) {
     this.background = background;
     this.foreground = foreground;
     this.backgroundSpeed = speed;
-    this.foregroundSpeed = this.backgroundSpeed / 2 ;
+    this.foregroundSpeed = this.backgroundSpeed / 2;
     this.backgroundInitalAxisX = 0;
     this.backgroundEndAxisX = width;
     this.foregroundInitalAxisX = this.backgroundInitalAxisX;

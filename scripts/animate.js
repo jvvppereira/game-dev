@@ -1,7 +1,25 @@
-class Animate {
-  constructor(image) {
+class Animation {
+  constructor({
+    image,
+    objectWidth,
+    objectHeight,
+    floorGap,
+    spritesQuantity,
+    spriteLines,
+    spriteColumns,
+    axisX,
+  }) {
     this.image = image;
+    this.axisX = axisX;
     this.currentFrameOnRunnig = 0;
+    this.objectWidth = objectWidth;
+    this.objectHeight = objectHeight;
+    this.floorGap = floorGap;
+    this.spritesQuantity = spritesQuantity;
+    this.spriteLines = spriteLines;
+    this.spriteColumns = spriteColumns;
+    this.initialAxisY = height - this.objectHeight - this.floorGap;
+    this.axisY = this.initialAxisY;
   }
 
   show() {
@@ -31,8 +49,8 @@ class Animate {
   generateMatrixPosition(size, lines, columns, imageWidth, imageHeight) {
     const matrix = [];
     let index = 0;
-    for (let indexColumns = 0; indexColumns < columns; indexColumns++) {
-      for (let indexLines = 0; indexLines < lines; indexLines++) {
+    for (let indexLines = 0; indexLines < lines; indexLines++) {
+      for (let indexColumns = 0; indexColumns < columns; indexColumns++) {
         if (indexColumns + indexLines + 2 <= size) {
           matrix[index] = [indexColumns * imageWidth, indexLines * imageHeight];
           index++;

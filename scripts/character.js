@@ -1,26 +1,14 @@
-class Character extends Animate {
-  constructor(image) {
-    super(image);
-    this.axisX = 0;
-
-    this.objectWidth = 150;
-    this.objectHeight = 222.75;
-
-    this.spritesQuantity = 8;
-    this.spriteLines = 8;
-    this.spriteColumns = 1;
-
-    this.initialAxisY = height - this.objectHeight;
-    this.axisY = this.initialAxisY;
-
+class Character extends Animation {
+  constructor(config) {
+    super(config);
     this.jumpVelocity = 0;
     this.gravity = 5;
-
     this.jumpCount = 0;
+    this.jumpLimit = config.jumpLimit;
   }
 
   jump() {
-    if (this.jumpCount < 2) {
+    if (this.jumpCount < this.jumpLimit) {
       jumpSound.play();
       this.jumpVelocity = -50;
       this.jumpCount++;
