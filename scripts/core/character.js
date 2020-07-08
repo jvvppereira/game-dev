@@ -7,9 +7,9 @@ class Character extends Animation {
     this.jumpLimit = config.jumpLimit;
   }
 
-  jump() {
+  jump(sketch) {
     if (this.jumpCount < this.jumpLimit) {
-      jumpSound.play();
+      sketch.getSound('jump').loaded.play();
       this.jumpVelocity = -50;
       this.jumpCount++;
     }

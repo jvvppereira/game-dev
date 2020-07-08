@@ -13,4 +13,8 @@ class Enemy extends Animation {
       this.axisX = width;
     }
   }
+
+  isOnScreen() {
+    return this.axisX < -this.objectWidth;
+  }
 }

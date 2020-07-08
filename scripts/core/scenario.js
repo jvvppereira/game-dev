@@ -4,33 +4,33 @@ class Scenario {
     this.foreground = foreground;
     this.backgroundSpeed = speed;
     this.foregroundSpeed = this.backgroundSpeed / 2;
-    this.backgroundInitalAxisX = 0;
+    this.backgroundInitialAxisX = 0;
     this.backgroundEndAxisX = width;
-    this.foregroundInitalAxisX = this.backgroundInitalAxisX;
+    this.foregroundInitialAxisX = this.backgroundInitialAxisX;
     this.foregroundEndAxisX = this.backgroundEndAxisX;
   }
 
   show() {
-    image(this.background, this.backgroundInitalAxisX, 0, width, height);
+    image(this.background, this.backgroundInitialAxisX, 0, width, height);
     image(this.background, this.backgroundEndAxisX, 0, width, height);
-    image(this.foreground, this.foregroundInitalAxisX, 0, width, height);
+    image(this.foreground, this.foregroundInitialAxisX, 0, width, height);
     image(this.foreground, this.foregroundEndAxisX, 0, width, height);
   }
 
   move() {
-    this.backgroundInitalAxisX -= this.backgroundSpeed;
+    this.backgroundInitialAxisX -= this.backgroundSpeed;
     this.backgroundEndAxisX -= this.backgroundSpeed;
-    if (this.backgroundInitalAxisX < -width) {
-      this.backgroundInitalAxisX = width;
+    if (this.backgroundInitialAxisX < -width) {
+      this.backgroundInitialAxisX = width;
     }
     if (this.backgroundEndAxisX < -width) {
       this.backgroundEndAxisX = width;
     }
 
-    this.foregroundInitalAxisX -= this.foregroundSpeed;
+    this.foregroundInitialAxisX -= this.foregroundSpeed;
     this.foregroundEndAxisX -= this.foregroundSpeed;
-    if (this.foregroundInitalAxisX < -width) {
-      this.foregroundInitalAxisX = width;
+    if (this.foregroundInitialAxisX < -width) {
+      this.foregroundInitialAxisX = width;
     }
     if (this.foregroundEndAxisX < -width) {
       this.foregroundEndAxisX = width;
