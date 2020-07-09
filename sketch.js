@@ -5,20 +5,30 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(20);
-  this.getSound(`gameMusic`).loaded.loop();
 
-  game = new Game(this);
+  const buttonWidth = 126;
+
+  const button = new Button('Start', {
+    x: width / 2 - buttonWidth / 2,
+    y: (height / 7) * 5,
+  });
+
+  const game = new Game(this);
   game.setup();
 
-  home = new Home(this);
+  const home = new Home(this, button);
   home.setup();
 
-  currentScreen = 'game';
+  currentScreen = 'home';
 
   screens = {
     game,
     home,
   };
+}
+
+function changeScreen(newScreen) {
+  currentScreen = newScreen;
 }
 
 function draw() {

@@ -66,5 +66,5 @@ function preLoad(sketch) {
 
   sketch.getImage = (name) => images.find((image) => image.name == name);
   sketch.getSound = (name) => sounds.find((sound) => sound.name == name);
-  sketch.getSound = (name) => sounds.find((sound) => sound.name == name);
+  sketch.getFont = (name) => fonts.find((font) => font.name == name);
 }

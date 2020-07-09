@@ -7,7 +7,7 @@ class Score {
     textAlign(RIGHT);
     fill('#fff');
     textSize(60);
-    text(`Score: ` + parseInt(this.points), width - 30, 50);
+    text(`score: ` + parseInt(this.points), width - 30, 50);
   }
 
   getPoints() {

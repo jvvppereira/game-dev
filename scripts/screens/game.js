@@ -5,6 +5,7 @@ class Game {
 
   setup() {
     gameSetup(this, this.sketch);
+    this.sketch.getSound(`gameMusic`).loaded.loop();
   }
 
   keyPressed(key) {
@@ -28,7 +29,7 @@ class Game {
     this.score.addPoint();
 
     const currentEnemy = this.enemies[this.currentEnemyIndex];
-    
+
     let nextIndex = this.currentEnemyIndex + 1;
     if (nextIndex > this.enemies.length - 1) nextIndex = 0;
     const nextEnemy = this.enemies[nextIndex];
