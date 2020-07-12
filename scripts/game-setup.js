@@ -32,7 +32,7 @@ function gameSetup(game, sketch) {
 
   const enemy = new Enemy({
     image: sketch.getImage('skull').loaded,
-    objectWidth: 96.5,
+    objectWidth: 100,
     objectHeight: 100,
     floorGap: 30,
     spritesQuantity: 4,
