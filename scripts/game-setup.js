@@ -9,6 +9,12 @@ function gameSetup(game, sketch) {
 
   game.score = new Score();
 
+  game.life = new Life(sketch, {
+    maxQuantity: 4,
+    starts: 4,
+    size: { width: 50, height: 50 },
+  });
+
   game.character = new Character({
     image: sketch.getImage('characterRun').loaded,
     objectWidth: 150,

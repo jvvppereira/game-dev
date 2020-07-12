@@ -17,9 +17,9 @@ function setup() {
   game.setup();
 
   const home = new Home(this, button);
-  home.setup();
 
   currentScreen = 'home';
+  // currentScreen = 'game'; //TODO comment, only to develop time
 
   screens = {
     game,

@@ -32,17 +32,28 @@ class Character extends Animation {
     // rect(enemy.axisX, enemy.axisY, enemy.objectWidth, enemy.objectHeight);
 
     const precision = 0.7;
-    const bump = collideRectRect(
-      this.axisX,
-      this.axisY,
-      this.objectWidth * precision,
-      this.objectHeight * precision,
-      enemy.axisX,
-      enemy.axisY,
-      enemy.objectWidth * precision,
-      enemy.objectHeight * precision
-    );
+    const bump =
+      !this.invencible &&
+      collideRectRect(
+        this.axisX,
+        this.axisY,
+        this.objectWidth * precision,
+        this.objectHeight * precision,
+        enemy.axisX,
+        enemy.axisY,
+        enemy.objectWidth * precision,
+        enemy.objectHeight * precision
+      );
 
     return bump;
+  }
+
+  beInvencible() {
+    const seconds = 1 * 1000;
+
+    this.invencible = true;
+    setTimeout(() => {
+      this.invencible = false;
+    }, seconds);
   }
 }

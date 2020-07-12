@@ -5,7 +5,7 @@ class Game {
 
   setup() {
     gameSetup(this, this.sketch);
-    this.sketch.getSound(`gameMusic`).loaded.loop();
+    this.sketch.getSound(`gameMusic`).loaded.loop(); //TODO comment, only to develop time
   }
 
   keyPressed(key) {
@@ -28,24 +28,35 @@ class Game {
     this.score.show();
     this.score.addPoint();
 
+    this.life.draw();
+
     const currentEnemy = this.enemies[this.currentEnemyIndex];
 
     let nextIndex = this.currentEnemyIndex + 1;
     if (nextIndex > this.enemies.length - 1) nextIndex = 0;
     const nextEnemy = this.enemies[nextIndex];
 
+    const showGameOver = () => {
+      const gameOverImageWidth = 200;
+      image(
+        getImage('gameOver').loaded,
+        width / 2 - gameOverImageWidth,
+        height / 3
+      );
+      noLoop();
+    };
+
     const showEnemy = (enemy) => {
       enemy.show();
       enemy.attack();
 
       if (this.character.bumped(enemy)) {
-        const gameOverImageWidth = 200;
-        image(
-          getImage('gameOver').loaded,
-          width / 2 - gameOverImageWidth,
-          height / 3
-        );
-        noLoop();
+        this.character.beInvencible();
+        this.life.remove();
+      }
+
+      if (this.life.getQuantity() == 0) {
+        showGameOver();
       }
 
       enemy.speed = parseInt(random(10, this.score.getPoints() * 0.75));

@@ -3,7 +3,6 @@ class Home {
     this.sketch = sketch;
     this.button = button;
   }
-  setup() {}
   draw() {
     image(this.sketch.getImage('home').loaded, 0, 0, width, height);
     this.write('PetS', { x: width / 2, y: height / 3 });

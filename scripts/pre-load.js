@@ -33,6 +33,10 @@ function preLoad(sketch) {
       path: 'images/assets/game-over.png',
     },
     {
+      name: 'heart',
+      path: 'images/assets/heart.png',
+    },
+    {
       name: 'home',
       path: 'images/assets/home-screen.png',
     }
