@@ -3,8 +3,8 @@ function gameSetup(game, sketch) {
   game.settings = game.memoryCard.settings;
 
   game.scenario = new Scenario({
-    background: sketch.getImage('background').loaded,
-    foreground: sketch.getImage('foreground').loaded,
+    background: sketch.getImage('background-lvl-01').loaded,
+    foreground: sketch.getImage('foreground-lvl-01').loaded,
     speed: 10,
   });
 
@@ -31,13 +31,13 @@ function gameSetup(game, sketch) {
   });
 
   const enemy = new Enemy({
-    image: sketch.getImage('enemyRun').loaded,
-    objectWidth: 163.1,
-    objectHeight: 174,
+    image: sketch.getImage('skull').loaded,
+    objectWidth: 96.5,
+    objectHeight: 100,
     floorGap: 30,
-    spritesQuantity: 10,
-    spriteLines: 1,
-    spriteColumns: 10,
+    spritesQuantity: 4,
+    spriteLines: 2,
+    spriteColumns: 2,
     speed: 20,
   });
 

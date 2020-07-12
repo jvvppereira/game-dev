@@ -6,11 +6,11 @@ function preLoad(sketch) {
 
   sketch.images.push(
     {
-      name: 'background',
+      name: 'background-lvl-01',
       path: 'images/scenario/forest-01/layers/background.png',
     },
     {
-      name: 'foreground',
+      name: 'foreground-lvl-01',
       path: 'images/scenario/forest-01/layers/foreground.png',
     },
     {
@@ -20,6 +20,10 @@ function preLoad(sketch) {
     {
       name: 'enemyRun',
       path: 'images/cat/rtl/slide.png',
+    },
+    {
+      name: 'skull',
+      path: 'images/skull/skull.png',
     },
     {
       name: 'bigEnemy',

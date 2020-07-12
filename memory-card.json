@@ -6,7 +6,8 @@
     },
     "changeLevel": {
       "afterEnemies": 10
-    }
+    },
+    "endGameAfterLevels": 4
   },
   "map": [
     {
