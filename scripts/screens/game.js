@@ -5,7 +5,7 @@ class Game {
 
   setup() {
     gameSetup(this, this.sketch);
-    this.sketch.getSound(`gameMusic`).loaded.loop(); //TODO comment, only to develop time
+    // this.sketch.getSound(`gameMusic`).loaded.loop(); //TODO comment, only to develop time
   }
 
   keyPressed(key) {
@@ -29,12 +29,6 @@ class Game {
     this.score.addPoint();
 
     this.life.draw();
-
-    const currentEnemy = this.enemies[this.currentEnemyIndex];
-
-    let nextIndex = this.currentEnemyIndex + 1;
-    if (nextIndex > this.enemies.length - 1) nextIndex = 0;
-    const nextEnemy = this.enemies[nextIndex];
 
     const showGameOver = () => {
       const gameOverImageWidth = 200;
@@ -62,14 +56,29 @@ class Game {
       enemy.speed = parseInt(random(10, this.score.getPoints() * 0.75));
     };
 
-    showEnemy(currentEnemy);
-    showEnemy(nextEnemy);
+    this.mapStage = this.map[this.currentMapStage];
 
-    if (currentEnemy.isOnScreen()) {
-      this.currentEnemyIndex++;
-      if (this.currentEnemyIndex > this.enemies.length - 1) {
-        this.currentEnemyIndex = 0;
+    this.mapStage.enemies.forEach((enemy) => {
+      const currentEnemy = this.enemies[enemy.enemyType];
+
+      // let nextIndex = this.currentEnemyIndex + 1;
+      // if (nextIndex > this.enemies.length - 1) nextIndex = 0;
+      // const nextEnemy = this.enemies[nextIndex];
+
+      showEnemy(currentEnemy);
+      // showEnemy(nextEnemy);
+
+      if (currentEnemy.isOnScreen()) {
+        currentEnemy.showUp();
+        this.currentEnemyIndex++;
+        this.currentMapStage++;
+        if (this.currentEnemyIndex > this.mapStage.enemies.length - 1) {
+          this.currentEnemyIndex = 0;
+        }
+        if (this.currentMapStage > this.map.length - 1) {
+          this.currentMapStage = 0;
+        }
       }
-    }
+    });
   }
 }

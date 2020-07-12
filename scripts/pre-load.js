@@ -2,6 +2,7 @@ function preLoad(sketch) {
   sketch.images = [];
   sketch.sounds = [];
   sketch.fonts = [];
+  sketch.jsons = [];
 
   sketch.images.push(
     {
@@ -30,15 +31,15 @@ function preLoad(sketch) {
     },
     {
       name: 'gameOver',
-      path: 'images/assets/game-over.png',
+      path: 'images/game-over.png',
     },
     {
       name: 'heart',
-      path: 'images/assets/heart.png',
+      path: 'images/heart.png',
     },
     {
       name: 'home',
-      path: 'images/assets/home-screen.png',
+      path: 'images/home-screen.png',
     }
   );
 
@@ -57,6 +58,11 @@ function preLoad(sketch) {
     name: 'home-screen',
     path: 'fonts/home-screen.otf',
   });
+ 
+  sketch.jsons.push({
+    name: 'memory-card',
+    path: 'memory-card.json',
+  });
 
   sketch.images.forEach((image) => {
     image.loaded = loadImage(image.path);
@@ -67,8 +73,12 @@ function preLoad(sketch) {
   sketch.fonts.forEach((font) => {
     font.loaded = loadFont(font.path);
   });
+  sketch.jsons.forEach((json) => {
+    json.loaded = loadJSON(json.path);
+  });
 
-  sketch.getImage = (name) => images.find((image) => image.name == name);
-  sketch.getSound = (name) => sounds.find((sound) => sound.name == name);
-  sketch.getFont = (name) => fonts.find((font) => font.name == name);
+  sketch.getImage = (name) => images.find((image) => image.name === name);
+  sketch.getSound = (name) => sounds.find((sound) => sound.name === name);
+  sketch.getFont = (name) => fonts.find((font) => font.name === name);
+  sketch.getJSON = (name) => jsons.find((json) => json.name === name);
 }

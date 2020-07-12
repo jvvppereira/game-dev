@@ -1,4 +1,7 @@
 function gameSetup(game, sketch) {
+  game.memoryCard = sketch.getJSON('memory-card').loaded;
+  game.settings = game.memoryCard.settings;
+
   game.scenario = new Scenario({
     background: sketch.getImage('background').loaded,
     foreground: sketch.getImage('foreground').loaded,
@@ -10,8 +13,8 @@ function gameSetup(game, sketch) {
   game.score = new Score();
 
   game.life = new Life(sketch, {
-    maxQuantity: 4,
-    starts: 4,
+    maxQuantity: game.settings.life.maximum,
+    starts: game.settings.life.initial,
     size: { width: 50, height: 50 },
   });
 
@@ -36,7 +39,6 @@ function gameSetup(game, sketch) {
     spriteLines: 1,
     spriteColumns: 10,
     speed: 20,
-    delay: 200,
   });
 
   const bigEnemy = new Enemy({
@@ -48,7 +50,6 @@ function gameSetup(game, sketch) {
     spriteLines: 2,
     spriteColumns: 4,
     speed: 20,
-    delay: 1500,
   });
 
   const flyEnemy = new Enemy({
@@ -60,9 +61,10 @@ function gameSetup(game, sketch) {
     spriteLines: 2,
     spriteColumns: 2,
     speed: 20,
-    delay: 2500,
   });
 
   game.enemies.push(enemy, bigEnemy, flyEnemy);
-  game.currentEnemyIndex = 0;
+  game.currentMapStage = 0;
+
+  game.map = game.memoryCard.map;
 }

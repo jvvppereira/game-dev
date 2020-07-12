@@ -1,0 +1,45 @@
+{
+  "settings": {
+    "life": {
+      "maximum": 8,
+      "initial": 4
+    },
+    "changeLevel": {
+      "afterEnemies": 10
+    }
+  },
+  "map": [
+    {
+      "enemies": [
+        {
+          "enemyType": 0,
+          "speed": 10
+        }
+      ]
+    },
+    {
+      "enemies": [
+        {
+          "enemyType": 1,
+          "speed": 30
+        }
+      ]
+    },
+    {
+      "enemies": [
+        {
+          "enemyType": 1,
+          "speed": 15
+        }
+      ]
+    },
+    {
+      "enemies": [
+        {
+          "enemyType": 2,
+          "speed": 40
+        }
+      ]
+    }
+  ]
+}
