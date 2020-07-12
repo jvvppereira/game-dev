@@ -5,7 +5,7 @@ class Game {
 
   setup() {
     gameSetup(this, this.sketch);
-    // this.sketch.getSound(`gameMusic`).loaded.loop(); //TODO comment, only to develop time
+    this.sketch.getSound(`gameMusic`).loaded.loop(); //TODO comment, only to develop time
   }
 
   keyPressed(key) {
@@ -37,6 +37,27 @@ class Game {
         width / 2 - gameOverImageWidth,
         height / 3
       );
+
+      const buttonWidth = 126;
+
+      const button = new Button('Again?', {
+        x: width / 2 - buttonWidth / 2,
+        y: (height / 7) * 5,
+      });
+
+      button.draw(() => {
+        this.mapStage.enemies.forEach((enemy) => {
+          const currentEnemy = this.enemies[enemy.enemyType];
+          currentEnemy.axisX = width;
+        });
+        this.currentMapStage = 0;
+        for (let index = 0; index < this.settings.life.initial; index++) {
+          this.life.add();
+        }
+        this.score.reset();
+        loop();
+      });
+
       noLoop();
     };
 
@@ -53,7 +74,7 @@ class Game {
         showGameOver();
       }
 
-      enemy.speed = parseInt(random(10, this.score.getPoints() * 0.75));
+      enemy.speed = parseInt(random(10, this.score.getPoints() * 0.5));
     };
 
     this.mapStage = this.map[this.currentMapStage];

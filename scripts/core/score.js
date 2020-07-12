@@ -17,4 +17,8 @@ class Score {
   addPoint() {
     this.points += 0.1;
   }
+
+  reset() {
+    this.points = 0;
+  }
 }

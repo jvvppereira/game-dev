@@ -7,15 +7,13 @@ class Button {
     this.button = createButton(this.text);
   }
 
-  draw(fn, classCSS) {
+  draw(fn, classCSS = 'button-home-screen') {
     this.button.position(this.x, this.y);
     this.button.mousePressed(() => {
       fn();
       this.button.remove();
     });
 
-    if (classCSS) {
-      this.button.addClass(classCSS);
-    }
+    this.button.addClass(classCSS);
   }
 }

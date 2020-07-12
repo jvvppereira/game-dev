@@ -21,6 +21,6 @@ class Home {
   createButton() {
     this.button.draw(() => {
       this.sketch.changeScreen('game');
-    }, 'button-home-screen');
+    });
   }
 }

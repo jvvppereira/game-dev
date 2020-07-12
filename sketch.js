@@ -18,8 +18,8 @@ function setup() {
 
   const home = new Home(this, button);
 
-  // currentScreen = 'home';
-  currentScreen = 'game'; //TODO comment, only to develop time
+  currentScreen = 'home';
+  // currentScreen = 'game'; //TODO comment, only to develop time
 
   screens = {
     game,

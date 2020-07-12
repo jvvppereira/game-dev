@@ -13,32 +13,28 @@
     {
       "enemies": [
         {
-          "enemyType": 0,
-          "speed": 10
+          "enemyType": 0
         }
       ]
     },
     {
       "enemies": [
         {
-          "enemyType": 1,
-          "speed": 30
+          "enemyType": 1
         }
       ]
     },
     {
       "enemies": [
         {
-          "enemyType": 1,
-          "speed": 15
+          "enemyType": 1
         }
       ]
     },
     {
       "enemies": [
         {
-          "enemyType": 2,
-          "speed": 40
+          "enemyType": 2
         }
       ]
     }
