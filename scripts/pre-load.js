@@ -14,8 +14,12 @@ function preLoad(sketch) {
       path: 'images/scenario/forest-01/layers/foreground.png',
     },
     {
-      name: 'characterRun',
+      name: 'dogRun',
       path: 'images/dog/ltr/run.png',
+    },
+    {
+      name: 'catRun',
+      path: 'images/cat/ltr/run.png',
     },
     {
       name: 'enemyRun',

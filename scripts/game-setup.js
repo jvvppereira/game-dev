@@ -19,7 +19,7 @@ function gameSetup(game, sketch) {
   });
 
   game.character = new Character({
-    image: sketch.getImage('characterRun').loaded,
+    image: sketch.getImage('dogRun').loaded,
     objectWidth: 150,
     objectHeight: 222.75,
     floorGap: 30,
